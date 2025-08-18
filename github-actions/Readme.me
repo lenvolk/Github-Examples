@@ -19,9 +19,13 @@ https://api.github.com/repos/{owner}/{repo}/dispatches
 ## Volk Customized
 
 ```sh
+# set the token in your shell first (do not embed it in source)
+export GITHUB_TOKEN="your_personal_access_token_here"
+
 curl -X POST \
--H "Accept: application/vnd.github+json" \
--H "Authorization: token {PAT} \
--d '{"event_type": "webhook", "client_payload": {"key": "value"} }' \
-https://api.github.com/repos/lenvolk/Github-Examples/dispatches
+  -H "Accept: application/vnd.github+json" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: token $GITHUB_TOKEN" \
+  -d '{"event_type":"webhook","client_payload":{"key":"value"}}' \
+  https://api.github.com/repos/lenvolk/Github-Examples/dispatches
 ```
