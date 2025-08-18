@@ -86,6 +86,9 @@ curl -fsSL https://cli.github.com/packages/githubcli-archive-keyring.gpg | sudo 
 ```
 gh auth login
 gh repo clone andrew-wc-brown/Github-Examples
+
+gh issue list
+gh repo set-default lenvolk/Github-Examples
 ```
 
 ## Commits
