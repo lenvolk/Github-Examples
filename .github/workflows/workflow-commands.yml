@@ -1,0 +1,14 @@
+name: "Workflow Commands"
+
+on: [push]
+
+jobs:
+  my-job: # Corrected: Job names cannot contain spaces. Use a hyphen or underscore.
+    runs-on: ubuntu-latest
+    steps:
+      - name: "group logging"
+        run: |
+          echo "::group::My Group Message"
+          echo "Msg 1"
+          echo "Msg 2"
+          echo "::endgroup::"
