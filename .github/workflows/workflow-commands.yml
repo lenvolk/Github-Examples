@@ -3,7 +3,7 @@ name: "Workflow Commands"
 on: [push]
 
 jobs:
-  my-job: # Corrected: Job names cannot contain spaces. Use a hyphen or underscore.
+  my-job:
     runs-on: ubuntu-latest
     steps:
       - name: "group logging"
@@ -12,3 +12,12 @@ jobs:
           echo "Msg 1"
           echo "Msg 2"
           echo "::endgroup::"
+
+      - name: "step 1 - Set environment variable"
+        # This command sets an environment variable named MY_VAL
+        # that will be available to subsequent steps in the same job.
+        run: echo "MY_VAL=hello" >> $GITHUB_ENV
+
+      - name: "step 2 - Use environment variable"
+        # This step can now access the value of MY_VAL.
+        run: echo $MY_VAL
